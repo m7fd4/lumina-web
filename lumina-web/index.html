@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Group | التميز الرقمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #000000;
+            --card-bg: rgba(28, 28, 30, 0.7);
+            --text-main: #ffffff;
+            --text-sec: #a1a1a6;
+            --border: rgba(255, 255, 255, 0.1);
+            --blob-opacity: 0.2;
+            --primary: #007aff;
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f5f7;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --text-main: #1d1d1f;
+            --text-sec: #86868b;
+            --border: rgba(0, 0, 0, 0.1);
+            --blob-opacity: 0.4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            transition: all 0.4s ease;
+        }
+
+/* تنسيق قسم الهيرو الجديد - صورة أولاً ونصوص صغيرة */
+    .hero-section {
+        display: flex;
+        flex-direction: row-reverse; /* يجعل الصورة تبدأ أولاً من اليمين في لغات الـ RTL */
+        align-items: center;
+        justify-content: center;
+        padding: 60px 10%;
+        min-height: 70vh;
+        gap: 30px;
+    }
+
+    .hero-image {
+        flex: 1.2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 550px;
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+        animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-content {
+        flex: 0.8;
+        text-align: right;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; /* تم تصغير العنوان */
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--text-main);
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* تم تصغير الوصف */
+        color: var(--text-sec);
+        margin-bottom: 30px;
+        line-height: 1.6;
+        max-width: 400px;
+    }
+
+    .hero-btns {
+        display: flex;
+        gap: 15px;
+    }
+
+    /* أزرار أصغر وأنيقة */
+    .btn-hero-main {
+        background: var(--primary);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-hero-sec {
+        border: 1px solid var(--border);
+        background: var(--card-bg);
+        color: var(--text-main);
+        padding: 10px 25px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+
+    /* للموبايل: الصورة فوق والكلام تحت */
+    @media (max-width: 900px) {
+        .hero-section {
+            flex-direction: column;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        .hero-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero-btns { justify-content: center; }
+    }
+
+
+
+
+
+
+        .blob {
+            position: fixed;
+            width: 500px; height: 500px;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: var(--blob-opacity);
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+        .blob-1 { background: var(--primary); top: -100px; left: -100px; }
+        .blob-2 { background: #5e5ce6; bottom: -100px; right: -100px; }
+
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
+        }
+
+       nav {
+        height: 70px; 
+        display: flex; 
+        align-items: center;
+        backdrop-filter: blur(20px); 
+        -webkit-backdrop-filter: blur(20px);
+        background: var(--card-bg); 
+        border-bottom: 1px solid var(--border);
+        position: sticky; 
+        top: 0; 
+        z-index: 100;
+        /* إضافة حماية للجوانب لضمان عدم التصاق الشعار بحافة الشاشة */
+        padding: 0 5%; 
+    }
+
+    .nav-content {
+        width: 100%; 
+        max-width: 1200px; 
+        margin: 0 auto;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .logo { 
+        font-weight: 700; 
+        font-size: 1.3rem; /* تصغير حجم الخط قليلاً ليناسب الهواتف */
+        text-decoration: none; 
+        color: var(--text-main);
+        /* إضافة مسافة أمان صغيرة من اليمين في حالة الـ RTL */
+        margin-left: 15px; 
+        white-space: nowrap; /* منع النص من الانقسام لسطرين */
+    }
+
+    /* تعديل الروابط في الموبايل لكي لا تزحم الشعار */
+    @media (max-width: 600px) {
+        .nav-links {
+            gap: 12px; /* تقليل المسافة بين الروابط */
+        }
+        
+        .nav-links a {
+            font-size: 0.8rem; /* تصغير خط الروابط قليلاً */
+        }
+
+        .theme-toggle {
+            padding: 6px 12px; /* تصغير زر تغيير الوضع */
+            font-size: 0.75rem;
+        }
+
+        .logo {
+            font-size: 1.1rem; /* تصغير الشعار أكثر في الشاشات الصغيرة جداً */
+        }
+    }
+        .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; }
+
+        .theme-toggle {
+            background: var(--text-main); color: var(--bg);
+            border: none; padding: 8px 18px; border-radius: 20px;
+            cursor: pointer; font-weight: 600;
+        }
+
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 35px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .glass-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+
+       .app-icon { 
+    width: 80px; 
+    height: 80px; 
+    margin: 0 auto 20px; 
+    border-radius: 20px; 
+    background-size: cover; /* تجعل الصورة تغطي المربع بالكامل */
+    background-position: center; /* توسيط الصورة */
+    background-repeat: no-repeat;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* إضافة ظل خفيف لتبدو الصورة بارزة */
+}
+
+        .btn-download { 
+            width: 100%; padding: 12px; border: none; 
+            background: var(--text-main); color: var(--bg); 
+            border-radius: 12px; font-weight: 700; cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        /* تنسيق زر حماية الشهادة الجديد */
+        .cert-protection-wrapper {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn-cert {
+            background: linear-gradient(135deg, #34c759, #30d158);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(48, 209, 88, 0.3);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-cert:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(48, 209, 88, 0.4);
+        }
+
+        .review-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .footer-info {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 60px 5%;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .social-links { display: flex; gap: 15px; }
+        .social-links a {
+            color: var(--text-main);
+            background: var(--border);
+            width: 45px; height: 45px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 12px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .social-links a:hover { background: var(--primary); color: white; }
+
+        @media (max-width: 900px) {
+            .grid-layout, .footer-grid { grid-template-columns: 1fr; }
+            .btn-cert { width: 100%; justify-content: center; }
+        }
+
+        .app-description {
+    color: var(--text-sec);
+    font-size: 0.85rem;
+    margin-top: 8px;
+    line-height: 1.4;
+    min-height: 40px; /* لضمان تساوي أحجام الكروت حتى لو اختلف طول الوصف */
+}
+    </style>
+</head>
+<body data-theme="dark">
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Lumina</div>
+            <ul class="nav-links">
+                <li><a href="#apps">التطبيقات</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#reviews">الآراء</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">الوضع الفاتح</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-image">
+            <img src="hero-removebg-preview.png" alt="Lumina Design">
+        </div>
+
+        <div class="hero-content">
+            <h1>عالم من التطبيقات والترفيه</h1>
+            <p>اكتشف وحمّل أفضل التطبيقات المعدلة وبثوث لومينا سبورت بأمان وسهولة تامة.</p>
+            
+           <div class="hero-btns">
+    <a href="#apps" class="btn-hero-main">تثبيت المتجر</a>
+    <a href="javascript:void(0)" class="btn-hero-sec" onclick="showNotice()">تفعيل بنظام الأكواد</a>
+</div>
+        </div>
+    </section>
+
+   <!-- 1. قسم التطبيقات -->
+<section id="apps">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="font-size: 3.5rem; margin-bottom: 10px;">تطبيقاتنا</h1>
+        <p style="color: var(--text-sec);">مجموعة برمجية مختارة من تطوير محمود أحمد جاسم</p>
+    </div>
+
+    <div class="grid-layout">
+        <!-- التطبيق الأول -->
+        <div class="glass-card">
+            <!-- ضع رابط صورة التطبيق الأول هنا -->
+            <div class="app-icon" style="background-image: url('Lumina cinema.png');"></div>
+            <h3>Lumina cinema</h3>
+         <p class="app-description">استمتع بمشاهدة جميع الافلام والمسلسلات </p>
+           <a href="itms-services://?action=download-manifest&url=https://applejr.net/download/59a4ec56-65e7-4726-b169-2d200669ffb1.plist">  <button class="btn-download" style="background: var(--primary); color: white; margin-top: 20px;">تحميل</button></a>
+        </div>
+
+        <!-- التطبيق الثاني -->
+        <div class="glass-card" style="border-color: var(--primary);">
+            <!-- ضع رابط صورة التطبيق الثاني هنا -->
+            <div class="app-icon" style="background-image: url('lumina sport.png');"></div>
+            <h3>Lumina Sport</h3>
+            <p class="app-description"> استمتع بمشاهدة جميع دوريات كرة القدم </p>
+           <a href="itms-services://?action=download-manifest&url=https://applejr.net/download/f8cc0533-06a9-4c30-b8b1-5727c8a2bb4c.plist">  <button class="btn-download" style="background: var(--primary); color: white; margin-top: 20px;">تحميل</button></a>
+        </div>
+
+        <!-- التطبيق الثالث -->
+
+    </div>
+
+    <!-- زر حماية الشهادة -->
+   <a href="anti.mobileconfig" style="text-decoration: none;"> <div class="cert-protection-wrapper">
+        <button class="btn-cert">
+            <i class="fas fa-shield-alt"></i>
+            تثبيت حماية الشهادة
+        </button>
+    </div> </a>
+</section>
+
+    <!-- 2. قسم المميزات -->
+    <section id="features">
+        <h2 style="text-align: center; margin-bottom: 40px;">بماذا نتميز؟</h2>
+        <div class="grid-layout">
+            <div class="glass-card" style="text-align: right; padding: 25px;">
+                <h4 style="color: var(--primary); margin-bottom: 10px;">🛡️ أمان مطلق</h4>
+                <p style="font-size: 0.9rem; color: var(--text-sec);">فحص شامل لكل ملف لضمان سلامة خصوصيتك.</p>
+            </div>
+            <div class="glass-card" style="text-align: right; padding: 25px;">
+                <h4 style="color: var(--primary); margin-bottom: 10px;">⚡ سرعة فائقة</h4>
+                <p style="font-size: 0.9rem; color: var(--text-sec);">تحميل فوري بفضل تقنياتنا المتطورة.</p>
+            </div>
+            <div class="glass-card" style="text-align: right; padding: 25px;">
+                <h4 style="color: var(--primary); margin-bottom: 10px;">🔄 تحديثات</h4>
+                <p style="font-size: 0.9rem; color: var(--text-sec);">دعم مستمر لضمان عمل التطبيقات على أحدث أنظمة iOS.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. قسم الآراء -->
+    <section id="reviews">
+        <h2 style="text-align: center; margin-bottom: 40px;">آراء المجتمع</h2>
+        <div class="grid-layout">
+            <div class="review-box">
+                <p>"السرعة والأمان هي ما يميز Lumina Group فعلاً."</p>
+                <p style="color: var(--primary); margin-top: 15px; font-weight: bold;">- محمود أحمد جاسم</p>
+            </div>
+            <div class="review-box">
+                <p>"أفضل خيار لتحميل تطبيقات iOS بشكل مباشر."</p>
+                <p style="color: var(--primary); margin-top: 15px; font-weight: bold;">- علي جاسم</p>
+            </div>
+            <div class="review-box">
+                <p>"واجهة بسيطة وتصميم فخم، كل شيء واضح تماماً."</p>
+                <p style="color: var(--primary); margin-top: 15px; font-weight: bold;">- مصطفى الرافد</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. النبذة والتواصل -->
+    <div class="footer-info" id="about">
+        <div class="footer-grid">
+            <div class="about-text">
+                <h2>من نحن</h2>
+                <p>
+                    <strong>Lumina Group</strong> هي مبادرة برمجية من تطوير <strong>محمود أحمد جاسم</strong>، تهدف لتقديم حلول iOS آمنة وعصرية.
+                </p>
+            </div>
+            <div class="social-connect">
+                <h3>تواصل معنا</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; opacity: 0.5; font-size: 0.8rem;">
+            Lumina Group &copy; 2026 - جميع الحقوق محفوظة
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            if (body.getAttribute('data-theme') === 'dark' || !body.getAttribute('data-theme')) {
+                body.setAttribute('data-theme', 'light');
+                btn.innerText = 'الوضع الداكن';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerText = 'الوضع الفاتح';
+            }
+        }
+    </script>
+    <script>
+    function showNotice() {
+        // يمكنك تغيير النص بين العلامات ليناسب لهجتك أو أسلوبك
+        alert("عذراً، هذا النظام غير متوفر حالياً. سيتم تفعيله قريباً!");
+    }
+
+    // الكود القديم الخاص بتغيير الوضع (اللايت مود) يبقى كما هو
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('themeBtn');
+        if (body.getAttribute('data-theme') === 'dark' || !body.getAttribute('data-theme')) {
+            body.setAttribute('data-theme', 'light');
+            btn.innerText = 'الوضع الداكن';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            btn.innerText = 'الوضع الفاتح';
+        }
+    }
+</script>
+</body>
+</html>
