@@ -130,69 +130,7 @@
     }
 
 
-/* تنسيق شريط التنقل السفلي */
-.mobile-nav {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 400px;
-    background: rgba(28, 28, 30, 0.8); /* لون داكن شفاف */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 12px 10px;
-    z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
 
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #a1a1a6;
-    gap: 5px;
-    transition: 0.3s;
-    position: relative;
-}
-
-.nav-item i {
-    font-size: 1.2rem;
-}
-
-.nav-item span {
-    font-size: 0.7rem;
-    font-weight: 600;
-}
-
-/* حالة العنصر النشط */
-.nav-item.active {
-    color: #34c759; /* لون أخضر مثل الصورة */
-}
-
-/* شارة "NEW" الصغيرة */
-.badge-new {
-    position: absolute;
-    top: -10px;
-    right: -15px;
-    background: #ff3b30;
-    color: white;
-    font-size: 0.6rem;
-    padding: 2px 6px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-/* إخفاء الشريط في شاشات الكمبيوتر */
-@media (min-width: 901px) {
-    .mobile-nav { display: none; }
-}
 
 
 
@@ -410,7 +348,7 @@
         </div>
     </nav>
 
-    <section id="home" class="hero-section">
+    <section class="hero-section">
         <div class="hero-image">
             <img src="hero-removebg-preview.png" alt="Lumina Design">
         </div>
@@ -427,10 +365,10 @@
     </section>
 
    <!-- 1. قسم التطبيقات -->
-<section id="app">
+<section id="apps">
     <div style="text-align: center; margin-bottom: 50px;">
         <h1 style="font-size: 3.5rem; margin-bottom: 10px;">تطبيقاتنا</h1>
-        <p style="color: var(--text-sec);">مجموعة برمجية مختارة من تطوير محمود الجنابي</p>
+        <p style="color: var(--text-sec);">مجموعة برمجية مختارة من تطوير محمود أحمد جاسم</p>
     </div>
 
     <div class="grid-layout">
@@ -440,7 +378,7 @@
             <div class="app-icon" style="background-image: url('Lumina cinema.png');"></div>
             <h3>Lumina cinema</h3>
          <p class="app-description">استمتع بمشاهدة جميع الافلام والمسلسلات </p>
-           <a href="https://ipa.ipasign.cc/download/bc79f34a06a8">  <button class="btn-download" style="background: var(--primary); color: white; margin-top: 20px;">تحميل</button></a>
+           <a href="itms-services://?action=download-manifest&url=https://applejr.net/download/59a4ec56-65e7-4726-b169-2d200669ffb1.plist">  <button class="btn-download" style="background: var(--primary); color: white; margin-top: 20px;">تحميل</button></a>
         </div>
 
         <!-- التطبيق الثاني -->
@@ -449,7 +387,7 @@
             <div class="app-icon" style="background-image: url('lumina sport.png');"></div>
             <h3>Lumina Sport</h3>
             <p class="app-description"> استمتع بمشاهدة جميع دوريات كرة القدم </p>
-           <a href="https://ipa.ipasign.cc/download/b756002aa4a8">  <button class="btn-download" style="background: var(--primary); color: white; margin-top: 20px;">تحميل</button></a>
+           <a href="itms-services://?action=download-manifest&url=https://applejr.net/download/f8cc0533-06a9-4c30-b8b1-5727c8a2bb4c.plist">  <button class="btn-download" style="background: var(--primary); color: white; margin-top: 20px;">تحميل</button></a>
         </div>
 
         <!-- التطبيق الثالث -->
@@ -509,7 +447,7 @@
             <div class="about-text">
                 <h2>من نحن</h2>
                 <p>
-                    <strong>Lumina Group</strong> هي مبادرة برمجية من تطوير <strong>محمود الجنابي</strong>، تهدف لتقديم حلول iOS آمنة وعصرية.
+                    <strong>Lumina Group</strong> هي مبادرة برمجية من تطوير <strong>محمود أحمد جاسم</strong>، تهدف لتقديم حلول iOS آمنة وعصرية.
                 </p>
             </div>
             <div class="social-connect">
@@ -556,28 +494,8 @@
             body.setAttribute('data-theme', 'dark');
             btn.innerText = 'الوضع الفاتح';
         }
-  
+    }
 </script>
-   <div class="mobile-nav">
-    <a href="#apps" class="nav-item active">
-        <i class="fas fa-store"></i>
-        <span>المتجر</span>
-    </a>
-    
-    <a href="#apps" class="nav-item">
-        <i class="fas fa-layer-group"></i>
-        <span>التطبيقات</span>
-    </a>
-    
-    <a href="javascript:void(0)" onclick="showNotice()" class="nav-item">
-        <i class="fas fa-pen-nib"></i>
-        <span>توقيع</span>
-    </a>
-    
-    <a href="#about" class="nav-item">
-        <i class="fas fa-arrow-down"></i>
-        <span>المزيد</span>
-    </a>
-</div>
 </body>
 </html>
+
