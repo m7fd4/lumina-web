@@ -496,6 +496,25 @@
         }
     }
 </script>
+    <script>
+    // 1. منع المتصفح من تذكر آخر مكان كنت فيه عند التحديث
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    // 2. إجبار الصفحة على الصعود للأعلى عند التحميل
+    window.scrollTo(0, 0);
+
+    // 3. احتياطاً لبعض الهواتف، نكرر العملية بعد جزء بسيط من الثانية
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'instant' // صعود فوري بدون أنيميشن لضمان البداية من الأعلى
+            });
+        }, 10);
+    });
+</script>
 </body>
 </html>
 
