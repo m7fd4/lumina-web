@@ -127,6 +127,72 @@
             align-items: center;
         }
         .hero-btns { justify-content: center; }
+
+
+
+        /* تنسيق شريط التنقل السفلي */
+.mobile-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(28, 28, 30, 0.8); /* لون داكن شفاف */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 10px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #a1a1a6;
+    gap: 5px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+}
+
+.nav-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* حالة العنصر النشط */
+.nav-item.active {
+    color: #34c759; /* لون أخضر مثل الصورة */
+}
+
+/* شارة "NEW" الصغيرة */
+.badge-new {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background: #ff3b30;
+    color: white;
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* إخفاء الشريط في شاشات الكمبيوتر */
+@media (min-width: 901px) {
+    .mobile-nav { display: none; }
+}
     }
 
 
@@ -515,6 +581,26 @@
         }, 10);
     });
 </script>
+
+    <div class="mobile-nav">
+    <a href="#apps" class="nav-item active">
+        <i class="fas fa-th-large"></i>
+        <span>المتجر</span>
+    </a>
+    <a href="subscriptions.html" class="nav-item">
+        <i class="fas fa-file-invoice-dollar"></i>
+        <span>اشتراكات</span>
+    </a>
+    <a href="#features" class="nav-item">
+        <i class="fas fa-shield-alt"></i>
+        <span>الحماية</span>
+    </a>
+    <a href="javascript:void(0)" onclick="showNotice()" class="nav-item">
+        <i class="fas fa-unlock-alt"></i>
+        <span>جيلبريك</span>
+        <span class="badge-new">NEW</span>
+    </a>
+</div>
 </body>
 </html>
 
