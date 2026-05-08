@@ -410,7 +410,7 @@
         </div>
     </nav>
 
-    <section class="hero-section">
+    <section id="home" class="hero-section">
         <div class="hero-image">
             <img src="hero-removebg-preview.png" alt="Lumina Design">
         </div>
@@ -427,7 +427,7 @@
     </section>
 
    <!-- 1. قسم التطبيقات -->
-<section id="apps">
+<section>
     <div style="text-align: center; margin-bottom: 50px;">
         <h1 style="font-size: 3.5rem; margin-bottom: 10px;">تطبيقاتنا</h1>
         <p style="color: var(--text-sec);">مجموعة برمجية مختارة من تطوير محمود الجنابي</p>
@@ -556,16 +556,7 @@
             body.setAttribute('data-theme', 'dark');
             btn.innerText = 'الوضع الفاتح';
         }
-    }
-        window.onload = function() {
-    // التأكد من أن الصفحة تبدأ من الإحداثي 0 (الأعلى)
-    window.scrollTo(0, 0);
-};
-
-// حل إضافي في حال كان المتصفح يتذكر مكان التمرير القديم
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
+  
 </script>
    <div class="mobile-nav">
     <a href="#apps" class="nav-item active">
