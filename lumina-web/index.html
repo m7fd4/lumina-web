@@ -557,6 +557,15 @@
             btn.innerText = 'الوضع الفاتح';
         }
     }
+        window.onload = function() {
+    // التأكد من أن الصفحة تبدأ من الإحداثي 0 (الأعلى)
+    window.scrollTo(0, 0);
+};
+
+// حل إضافي في حال كان المتصفح يتذكر مكان التمرير القديم
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 </script>
    <div class="mobile-nav">
     <a href="#apps" class="nav-item active">
